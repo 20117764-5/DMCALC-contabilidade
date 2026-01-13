@@ -122,25 +122,39 @@ header.scrolled {
     display: flex;
     align-items: center;
     gap: 40px;
-    }
-    
+}
+
+/* Atenção: No seu HTML você usou .about-text, no CSS antigo estava .about-content. 
+   Ajustei para focar no .about-text que é o correto do seu HTML */
 .about-image,
-.about-content {
+.about-text { 
     flex: 1;
-    }
+}
     
-/* MOBILE */
+/* --- MOBILE ESPECÍFICO DA SEÇÃO SOBRE --- */
+/* Esta é a parte alterada para centralizar no celular */
 @media (max-width: 768px) {
     .about {
-        flex-direction: column;
-        gap: 20px;
-        }
+        flex-direction: column; /* Empilha um embaixo do outro */
+        gap: 30px; /* Espaço entre o bloco de texto e a imagem */
+    }
     
-    .about-image,
-    .about-content {
+    /* Centraliza o container que segura o texto e o botão */
+    .about-text {
         width: 100%;
-        }
-    }    
+        text-align: center;      /* Centraliza H2, P e SPAN */
+        
+        /* Flexbox para garantir que o botão (que é inline-block) centralize perfeitamente */
+        display: flex;
+        flex-direction: column;
+        align-items: center;     
+    }
+    
+    .about-image {
+        width: 100%;
+        margin-top: 10px; /* Um pequeno respiro extra acima da imagem */
+    }
+}   
 
 /* --- SERVIÇOS (Cards Brancos + Faixa Cinza) --- */
 .services-grid {
@@ -272,7 +286,7 @@ footer { background: #111; padding: 40px 0; color: #777; font-size: 0.8rem; bord
 .reveal-left.active { opacity: 1; transform: translateX(0); }
 .reveal-right.active { opacity: 1; transform: translateX(0); }
 
-/* --- Mobile --- */
+/* --- Mobile Geral --- */
 @media (max-width: 768px) {
     .menu-toggle { display: block; color: white; font-size: 1.5rem; cursor: pointer; }
     .nav-list {
@@ -283,6 +297,7 @@ footer { background: #111; padding: 40px 0; color: #777; font-size: 0.8rem; bord
     .nav-list.active { right: 0; }
     
     .hero h1 { font-size: 2rem; }
-    .about-container, .contact-wrapper, .zigzag-row, .zigzag-row.reverse { flex-direction: column; }
+    /* Removi .about-container daqui pois já tratamos ele na media query específica acima */
+    .contact-wrapper, .zigzag-row, .zigzag-row.reverse { flex-direction: column; }
     .footer-content { flex-direction: column; gap: 15px; text-align: center; }
 }
