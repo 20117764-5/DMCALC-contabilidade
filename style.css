@@ -107,7 +107,7 @@ header.scrolled {
     border: 1px solid var(--text-main); padding: 12px 30px; font-weight: 600; font-size: 0.8rem;
 }
 .btn-link-dark:hover { background: var(--primary); border-color: var(--primary); color: white; }
-.about-image img { border-radius: 0 100px 0 100px; }
+.about-image img { border-radius: 0; }
 
 /* --- SERVIÇOS (Cards Brancos + Faixa Cinza) --- */
 .services-grid {
